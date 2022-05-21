@@ -19,8 +19,10 @@ public class BmiService {
      * @return result bmi計算結果
      */
     public double getBmiCalcResult(double height, double weight) {
-double resultbmi = weight+(height*height) ;
-return resultbmi ;
+    	
+		double resultbmi = weight / (height * height) ;
+		System.out.println(resultbmi);
+		return resultbmi ;
     }
 
 }
