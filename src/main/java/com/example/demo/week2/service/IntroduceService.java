@@ -13,7 +13,8 @@ public class IntroduceService {
      * @return name 自分の名前
      */
 	public String getName() {
-
+		String nema = "冨沢健一郎";
+		return nema;
 	}
 	
     /**
@@ -25,6 +26,7 @@ public class IntroduceService {
      * @return comment 自己紹介文
      */
 	public String getComment() {
-
+		String comment = "冨沢です、よろしくお願いします" ;
+		return comment ;
 	}
 }
