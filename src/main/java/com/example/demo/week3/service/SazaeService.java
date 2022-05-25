@@ -1,8 +1,8 @@
 package com.example.demo.week3.service;
 
-import org.springframework.stereotype.Service;
 
-@Service
+import org.springframework.stereotype.Service;
+@Service 
 public class SazaeService {
     /**
      * <pre>
@@ -22,6 +22,23 @@ public class SazaeService {
      * @throws IllegalArgumentException myHand または opponentHand が goo,choki,per のいずれかでない場合
      */
     public String janken(String myHand, String opponentHand) {
-
+    	String result = "" ;
+    	if((myHand.equals("goo") && opponentHand.equals("choki")) || 
+    			(myHand.equals("coki")&&opponentHand.equals("per"))
+    			|| (myHand.equals("per")&& opponentHand .equals("goo"))) {
+    		 result = "win";
+    	  }else if((myHand.equals("goo") && opponentHand.equals("per"))|| 
+    			  (myHand.equals("choki")&&opponentHand=="goo")
+    			 ||(myHand.equals("per") && opponentHand.equals("choki")) ) {
+    		 result ="lose" ; 
+    	   }else {
+    		   result="draw"; 
+    	   }
+    	   
+    	return result ;
     }
 }
+    
+    
+
+   
