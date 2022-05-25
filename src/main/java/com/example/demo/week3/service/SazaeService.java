@@ -22,19 +22,22 @@ public class SazaeService {
      * @throws IllegalArgumentException myHand または opponentHand が goo,choki,per のいずれかでない場合
      */
     public String janken(String myHand, String opponentHand) {
-    	String result = "" ;
-    	if((myHand.equals("goo") && opponentHand.equals("choki")) || 
-    			(myHand.equals("coki")&&opponentHand.equals("per"))
-    			|| (myHand.equals("per")&& opponentHand .equals("goo"))) {
+    	String result ;
+    	if(
+    	   (myHand.equals("goo") && opponentHand.equals("choki")) || 
+    	   (myHand.equals("choki")&&opponentHand.equals("per"))||
+    	   (myHand.equals("per")&& opponentHand .equals("goo"))
+    	   ) {
     		 result = "win";
-    	  }else if((myHand.equals("goo") && opponentHand.equals("per"))|| 
-    			  (myHand.equals("choki")&&opponentHand=="goo")
-    			 ||(myHand.equals("per") && opponentHand.equals("choki")) ) {
+    	}else if(
+    			(myHand.equals("goo") && opponentHand.equals("per"))|| 
+    			(myHand.equals("choki")&&opponentHand.equals("goo"))||
+    			(myHand.equals("per") && opponentHand.equals("choki"))
+    			) {
     		 result ="lose" ; 
-    	   }else {
+    	}else {
     		   result="draw"; 
-    	   }
-    	   
+    	}
     	return result ;
     }
 }
