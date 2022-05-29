@@ -19,6 +19,16 @@ public class SingleNabeatuService {
      * @return flg アホになる('3を含む数字'または'3の倍数')かどうかの結果
      */
     public boolean isAhoNumber(int inputNumber) {
- 
-    }
+    	boolean flg ;
+    	String kazu = String.valueOf(inputNumber);
+    	if((inputNumber%3==0)||(kazu.contains("3"))) {
+	    flg = true ;
+  }
+        else {
+	   flg =false ;
+  }
+       return flg ;
+    	}
 }
+    
+
