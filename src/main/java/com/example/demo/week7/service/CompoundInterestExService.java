@@ -24,6 +24,7 @@ public class CompoundInterestExService {
      */
     public List<Double> getPriceList(int principal, double rate, int year) {
 
+        return null;
     }
 
     /**
@@ -48,6 +49,7 @@ public class CompoundInterestExService {
      */
     public String getIsOveredYearMsg(List<Double> list, int targetPrice) {
 
+        return null;
     }
 
     /**
@@ -69,5 +71,6 @@ public class CompoundInterestExService {
      */
     public int getOveredTargetPriceYear(List<Double> list, int targetPrice) {
 
+        return targetPrice;
     }
 }

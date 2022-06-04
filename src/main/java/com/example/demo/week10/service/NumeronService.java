@@ -36,6 +36,7 @@ public class NumeronService {
      * @return answerList ランダム数値3桁が格納されるリスト(答えの数列)
      */
     public List<Integer> init() {
+        return null;
     }
 
     /**
@@ -75,6 +76,7 @@ public class NumeronService {
 
         // attackResultに判定結果を格納
 
+        return answerList;
     }
 
     /**
@@ -91,6 +93,7 @@ public class NumeronService {
      */
     public int getHitCount(List<Integer> answerList, List<Integer> attackList) {
         // 数値と場所があっている場合の判定
+        return 0;
     }
 
     /**
@@ -107,6 +110,7 @@ public class NumeronService {
      */
     public int getBlowCount(List<Integer> answerList, List<Integer> attackList) {
         // 数値を使用しているが、場所があっていない場合の判定
+        return 0;
     }
 
     /**
@@ -127,6 +131,7 @@ public class NumeronService {
      * @return answerList 答えのリスト
      */
     public List<Integer> getAnswerList() {
+        return null;
     }
 
     /**
@@ -137,6 +142,7 @@ public class NumeronService {
      *  @return turn ターン数
      */
     public int getTurn() {
+        return 0;
     }
 
     /**
@@ -153,5 +159,6 @@ public class NumeronService {
      *  @return rank　
      */
     public List<String> getRank(int turn) {
+        return null;
     }
 }

@@ -20,11 +20,11 @@ public class NabeatuService {
 	 * @return totalNum 1から入力値(inputNumber)までの数値の和
 	 */
 	public int getTotalNum(int inputNumber) {
-		int totalNum;
-		int kazu = inputNumber;
-		totalNum = kazu + kazu;
+		int totalNum = 0 ;
+		for (int i = 1; i <= inputNumber; i++) {
+			totalNum = totalNum + i;
+		}
 		return totalNum;
-
 	}
 
 	/**
@@ -51,5 +51,4 @@ public class NabeatuService {
 		}
 		return flg;
 	}
-
 }

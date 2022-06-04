@@ -21,6 +21,7 @@ public class CompoundInterestService {
 	
 	public double getResult(int principal,double rate,int years) {
 
+		return rate;
 	}
 
 }

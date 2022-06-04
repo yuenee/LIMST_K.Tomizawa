@@ -19,6 +19,7 @@ public class CalculatorService {
      */
 	public String[] getCalcTypeNameArray() {
 
+		return new String[0];
 	}
 
     /**
@@ -38,6 +39,7 @@ public class CalculatorService {
      */
 	public Map<String, String> getCalcTypes(){
 
+		return null;
 	}
 
     /**
@@ -57,6 +59,7 @@ public class CalculatorService {
 		
 		//pysicalCalcTypeの取得処理
 
+		return calcType;
 	}
 
     /**
@@ -73,6 +76,7 @@ public class CalculatorService {
      */
 	public double calculate(String calcType,double firstNum,double secondNum) {
 
+		return firstNum;
 	}
     
 	/**
@@ -89,6 +93,7 @@ public class CalculatorService {
 
 		// 結果格納用変数
 
+		return firstNum;
 	}
 
 	/**
@@ -105,6 +110,7 @@ public class CalculatorService {
 
 		// 結果格納用変数
 
+		return firstNum;
 	}
 
 	/**
@@ -121,6 +127,7 @@ public class CalculatorService {
 
 		// 結果格納用変数
 
+		return firstNum;
 	}
 
 	/**
@@ -137,5 +144,6 @@ public class CalculatorService {
 
 		// 結果格納用変数
 
+		return firstNum;
 	}
 }
