@@ -19,7 +19,7 @@ public class EndlessOmikujiService {
 	public String getResult() {
 		int luck = 0;
 		String result = null;
-		while (luck != 3) {
+		while (true) {
 			luck = (int) (Math.random() * 4);
 			if (luck == 0) {
 				result = "大吉";
