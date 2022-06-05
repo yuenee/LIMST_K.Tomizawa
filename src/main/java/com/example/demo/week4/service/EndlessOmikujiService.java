@@ -2,6 +2,8 @@ package com.example.demo.week4.service;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class EndlessOmikujiService {
 	/**
@@ -18,6 +20,7 @@ public class EndlessOmikujiService {
 	 */
 	public String getResult() {
 		int luck = 0;
+		System.out.println();
 		String result = null;
 		while (true) {
 			luck = (int) (Math.random() * 4);
@@ -48,13 +51,13 @@ public class EndlessOmikujiService {
 	 */
 	public String getResultComment() {
 		String resultComment = null;
-		if (getResult() == "大吉") {
+		if (Objects.equals(getResult(), "大吉")) {
 			resultComment = "だめ";
-		} else if (getResult() == "中吉") {
+		} else if (Objects.equals(getResult(), "中吉")) {
 			resultComment = "ダメ";
-		} else if (getResult() == "吉") {
+		} else if (Objects.equals(getResult(), "吉")) {
 			resultComment = "だめ";
-		} else if (getResult() == "凶") {
+		} else if (Objects.equals(getResult(), "凶")) {
 			resultComment = "今あなたの後ろに";
 		}
 		return resultComment;

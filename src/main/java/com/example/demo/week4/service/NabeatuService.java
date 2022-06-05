@@ -43,8 +43,8 @@ public class NabeatuService {
 	 */
 	public boolean isAhoNumber(int totalNum) {
 		boolean flg;
-		String kazu = String.valueOf(totalNum);
-		if ((totalNum % 3 == 0) || (kazu.contains("3"))) {
+		String Kazu = String.valueOf(totalNum);
+		if ((totalNum % 3 == 0) || (Kazu.contains("3"))) {
 			flg = true;
 		} else {
 			flg = false;
