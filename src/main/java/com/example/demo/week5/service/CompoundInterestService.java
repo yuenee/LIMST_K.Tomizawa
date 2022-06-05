@@ -20,8 +20,12 @@ public class CompoundInterestService {
      */
 	
 	public double getResult(int principal,double rate,int years) {
-
-		return rate;
+		double result = 0;
+		double moto = principal ;
+		for (int i = 1; i <= years ; i++ )
+			moto =  moto + ((moto * rate) / 100 );
+		result = result + moto ;
+		return result;
 	}
 
 }
