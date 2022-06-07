@@ -18,8 +18,8 @@ public class CalculatorService {
      *  @return calcTypeNameArray 演算子の配列
      */
 	public String[] getCalcTypeNameArray() {
-
-		return new String[0];
+		String[] CalcTypeNameArray = {"＋" , "−" , "×" , "÷"};
+		return CalcTypeNameArray;
 	}
 
     /**
@@ -38,7 +38,6 @@ public class CalculatorService {
      *  @return calcTypes 演算子選択肢
      */
 	public Map<String, String> getCalcTypes(){
-
 		return null;
 	}
 

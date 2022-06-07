@@ -22,10 +22,10 @@ public class CompoundInterestService {
 	public double getResult(int principal,double rate,int years) {
 		double result = 0;
 		double moto = principal ;
-		for (int i = 1; i <= years ; i++ )
-			moto =  moto + ((moto * rate) / 100 );
-		result = result + moto ;
+		for (int i = 1; i <= years ; i++ ) {
+			moto = moto * (1 + rate / 100);
+			result = moto;
+		}
 		return result;
 	}
-
 }
