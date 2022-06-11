@@ -18,7 +18,7 @@ public class CalculatorService {
      *  @return calcTypeNameArray 演算子の配列
      */
 	public String[] getCalcTypeNameArray() {
-		String[] CalcTypeNameArray = {"＋" , "−" , "×" , "÷"};
+		String [] CalcTypeNameArray = {"足し算" , "引き算" , "掛け算" , "割り算"} ;
 		return CalcTypeNameArray;
 	}
 
@@ -38,7 +38,12 @@ public class CalculatorService {
      *  @return calcTypes 演算子選択肢
      */
 	public Map<String, String> getCalcTypes(){
-		return null;
+		Map<String , String > calcTypes = new LinkedHashMap <> () ;
+		calcTypes.put("add" , "+") ;
+		calcTypes.put("sub" , "-") ;
+		calcTypes.put("mul" , "×") ;
+		calcTypes.put("div" , "÷") ;
+		return calcTypes;
 	}
 
     /**
@@ -55,10 +60,23 @@ public class CalculatorService {
 	public String convertPysicalCalcType(String calcType) {
 
 		//calcTypeNameArrayで宣言した、各演算子のインデックスを定義(定数)
-		
+		String pysicalCalcType = null;
+		switch (calcType){
+			case "add":
+				pysicalCalcType = getCalcTypeNameArray()[0];
+				break;
+			case "sub":
+				pysicalCalcType = getCalcTypeNameArray()[1];
+				break;
+			case "mul":
+				pysicalCalcType = getCalcTypeNameArray()[2];
+				break;
+			case "div":
+				pysicalCalcType = getCalcTypeNameArray()[3];
+				break;
+		}
 		//pysicalCalcTypeの取得処理
-
-		return calcType;
+		return pysicalCalcType;
 	}
 
     /**
@@ -74,10 +92,28 @@ public class CalculatorService {
      *  @return result 計算結果
      */
 	public double calculate(String calcType,double firstNum,double secondNum) {
-
-		return firstNum;
+		double tasu = this.add(firstNum, secondNum);
+		double hiku = this.sub(firstNum, secondNum);
+		double kake = this.mul(firstNum, secondNum);
+		double waru = this.div(firstNum, secondNum);
+		double result ;
+		switch (calcType) {
+			case "add":
+				result = tasu;
+				break;
+			case "sub":
+				result = hiku;
+				break;
+			case "mul":
+				result = kake;
+				break;
+			default:
+				result = waru;
+				break;
+		}
+		return result;
 	}
-    
+
 	/**
      * <pre>
      * 【問題文】
@@ -91,8 +127,9 @@ public class CalculatorService {
 	public double add(double firstNum , double secondNum) {
 
 		// 結果格納用変数
-
-		return firstNum;
+		double result;
+		result = firstNum + secondNum;
+		return result;
 	}
 
 	/**
@@ -108,8 +145,9 @@ public class CalculatorService {
 	public double sub(double firstNum , double secondNum) {
 
 		// 結果格納用変数
-
-		return firstNum;
+		double result;
+		result = firstNum - secondNum;
+		return result;
 	}
 
 	/**
@@ -125,8 +163,9 @@ public class CalculatorService {
 	public double mul(double firstNum , double secondNum) {
 
 		// 結果格納用変数
-
-		return firstNum;
+		double result;
+		result = firstNum * secondNum;
+		return result;
 	}
 
 	/**
@@ -142,7 +181,8 @@ public class CalculatorService {
 	public double div(double firstNum , double secondNum) {
 
 		// 結果格納用変数
-
-		return firstNum;
+		double result;
+		result = firstNum / secondNum;
+		return result;
 	}
 }
