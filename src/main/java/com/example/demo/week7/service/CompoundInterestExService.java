@@ -18,15 +18,15 @@ public class CompoundInterestExService {
      * </pre>
      *
      * @param principal 画面で入力した元金
-     * @param rate 画面で入力した金利
-     * @param year 画面で入力した経過年数
+     * @param rate      画面で入力した金利
+     * @param year      画面で入力した経過年数
      * @return list 各年の複利計算結果
      */
     public List<Double> getPriceList(int principal, double rate, int year) {
         List<Double> list = new ArrayList<>();
-        int[] y = new int[year];
+        int[] years = new int[year];
         double moto = principal;
-        for (int i = 1; i <= y.length; i++) {
+        for (int i = 1; i <= years.length; i++) {
             moto = moto * (1 + rate / 100);
             list.add(moto);
         }
@@ -49,22 +49,19 @@ public class CompoundInterestExService {
      * 	例. FAILURE_MSG： 目標金額に到達できませんでした・・・
      * </pre>
      *
-     * @param list 計算した各年の複利計算結果
+     * @param list        計算した各年の複利計算結果
      * @param targetPrice 画面で入力した目標金額
      * @return FAILURE_MSG(目標金額に達成しなかった場合) or SUCCESS_MSG(目標金額に達成した場合)
      */
     public String getIsOveredYearMsg(List<Double> list, int targetPrice) {
-       int[] years =  getOveredTargetPriceYear(list, targetPrice);
-        String kekka = null;
-        for(int year : years) {
-            if (0 < year) {
-                kekka = "SUCCESS_MSG：" + year + "年目に目標達成しました";
-                break;
-            } else if (0 <= year) {
-                kekka = "FAILURE_MSG： 目標金額に到達できませんでした・・・";
-            }
+        int years = this.getOveredTargetPriceYear(list, targetPrice);
+        String result = null;
+        if (0 < years) {
+            result = "SUCCESS_MSG：" + years + "年目に目標達成しました";
+        } else if (0 <= years) {
+            result = "FAILURE_MSG： 目標金額に到達できませんでした・・・";
         }
-        return kekka;
+        return result;
     }
 
 
@@ -81,18 +78,18 @@ public class CompoundInterestExService {
      * 	0
      * </pre>
      *
-     * @param list 計算した各年の複利計算結果
+     * @param list        計算した各年の複利計算結果
      * @param targetPrice 画面で入力した目標金額
      * @return year 目標金額に到達した年数(到達しなかった場合は0)
      */
-    public int[] getOveredTargetPriceYear(List<Double> list, int targetPrice) {
-        int[] year = new int[2];
-        for(int i = 0; i < list.size(); i++){
-            if(targetPrice<list.get(i)){
-                year[0] = i+1;
+    public int getOveredTargetPriceYear(List<Double> list, int targetPrice) {
+        int year = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (targetPrice < list.get(i)) {
+                year = i + 1;
                 break;
-            }else if (list.get(i)<targetPrice){
-                year[1] = 0;
+            } else {
+                year = 0;
             }
         }
         return year;
