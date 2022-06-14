@@ -55,11 +55,13 @@ public class CompoundInterestExService {
      */
     public String getIsOveredYearMsg(List<Double> list, int targetPrice) {
         int years = this.getOveredTargetPriceYear(list, targetPrice);
+        final String SUCCESS_MSG = "年目に目標に達成しました";
+        final String FAILURE_MSG = "目標金額に到達できませんでした";
         String result = null;
         if (0 < years) {
-            result = "SUCCESS_MSG：" + years + "年目に目標達成しました";
+            result = years + SUCCESS_MSG;
         } else if (0 <= years) {
-            result = "FAILURE_MSG： 目標金額に到達できませんでした・・・";
+            result = FAILURE_MSG;
         }
         return result;
     }
@@ -88,8 +90,6 @@ public class CompoundInterestExService {
             if (targetPrice < list.get(i)) {
                 year = i + 1;
                 break;
-            } else {
-                year = 0;
             }
         }
         return year;
