@@ -1,9 +1,12 @@
 package com.example.demo.week2.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BmiService {
+	@Autowired
+	BlackJackService b = new BlackJackService();
 
     /**
      * <pre>
@@ -19,7 +22,7 @@ public class BmiService {
      * @return result bmi計算結果
      */
     public double getBmiCalcResult(double height, double weight) {
-    	
+    	System.out.println(b.hand());
 		double resultbmi = weight / (height * height) ;
 		System.out.println(resultbmi);
 		return resultbmi ;
