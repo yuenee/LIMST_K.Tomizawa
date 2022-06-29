@@ -2,9 +2,8 @@ package com.example.demo.week10.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
+
 
 import org.springframework.stereotype.Service;
 
@@ -20,8 +19,8 @@ public class NumeronService {
      * ・ターン数(turn) ターン数の初期値は0
      * </pre>
      */
-    List<Integer> answerList;
-    List<Integer> attackList;
+    List<Integer> answerList = new ArrayList<>();
+    List<Integer> attackList = new ArrayList<>();
     int turn = 0;
 
     /**
@@ -32,6 +31,7 @@ public class NumeronService {
      */
     public NumeronService() {
         init();
+
     }
 
 
@@ -46,7 +46,6 @@ public class NumeronService {
      * @return answerList ランダム数値3桁が格納されるリスト(答えの数列)
      */
     public List<Integer> init() {
-        List<Integer> answerList = new ArrayList<>();
         int[] Ransu = new int[3];
         Ransu[0] = (int) Math.floor(Math.random() * 10);
         Ransu[1] = (int) Math.floor(Math.random() * 10);
@@ -57,7 +56,7 @@ public class NumeronService {
             }
         }
         for (int ransu : Ransu) {
-            answerList.add(ransu);
+           this. answerList.add(ransu);
         }
         return answerList;
     }
@@ -86,7 +85,6 @@ public class NumeronService {
     public List<Integer> getAttackResult(List<Integer> answerList, String attackNumber) {
 
         //attackListを初期化
-        List<Integer> attackList = new ArrayList<>();
         int[] attack = new int[3];
 
         // attackNumberを1桁区切りにして、String型ListのnumberListに格納
@@ -96,7 +94,7 @@ public class NumeronService {
             attack[i] = Integer.parseInt(numberList.get(i));
         }
         for (int i : attack) {
-            attackList.add(i);
+            this.attackList.add(i);
         }
         // hitResultにgetHitCount呼び出し結果を格納
         int hitResult;
@@ -156,7 +154,6 @@ public class NumeronService {
         // 数値を使用しているが、場所があっていない場合の判定
         int blowCount = 0;
         int Answer;
-        int Attack;
         // 数値と場所があっている場合の判定
         for (int i = 0; i < 3; ++i) {
             Answer = answerList.get(i);
@@ -221,9 +218,9 @@ public class NumeronService {
         List<String> rank = new ArrayList<>();
 
         if (turn < 4) {
-            rank = Collections.singletonList("すごいね");
+            rank.add("A");
         } else if (turn < 10) {
-            rank = Collections.singletonList("流石だね");
+            rank.add("流石だね");
 
 
         }
