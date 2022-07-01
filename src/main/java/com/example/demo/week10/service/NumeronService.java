@@ -56,7 +56,7 @@ public class NumeronService {
             }
         }
         for (int ransu : Ransu) {
-           this. answerList.add(ransu);
+            this.answerList.add(ransu);
         }
         return answerList;
     }
@@ -86,15 +86,13 @@ public class NumeronService {
 
         //attackListを初期化
         int[] attack = new int[3];
-
+        this.attackList = new ArrayList<>();
         // attackNumberを1桁区切りにして、String型ListのnumberListに格納
         List<String> numberList = new ArrayList<>(Arrays.asList(attackNumber.split("")));
         // String⇒intに変換のうえ、attackListに格納
         for (int i = 0; i < numberList.size(); i++) {
             attack[i] = Integer.parseInt(numberList.get(i));
-        }
-        for (int i : attack) {
-            this.attackList.add(i);
+            attackList.add(attack[i]);
         }
         // hitResultにgetHitCount呼び出し結果を格納
         int hitResult;
@@ -153,14 +151,18 @@ public class NumeronService {
     public int getBlowCount(List<Integer> answerList, List<Integer> attackList) {
         // 数値を使用しているが、場所があっていない場合の判定
         int blowCount = 0;
-        int Answer;
-        // 数値と場所があっている場合の判定
-        for (int i = 0; i < 3; ++i) {
-            Answer = answerList.get(i);
-            if (Answer == attackList.get(0) || Answer == attackList.get(1) || Answer == attackList.get(2)) {
+        for (int i = 0; i < 3; i++) {
+            boolean b = answerList.contains(attackList.get(i));
+            if (b) {
                 blowCount++;
             }
+            if (answerList.get(i).equals(attackList.get(i))) {
+                blowCount--;
+            }
         }
+        // 数値と場所があっている場合の判定
+
+
         return blowCount;
     }
 
