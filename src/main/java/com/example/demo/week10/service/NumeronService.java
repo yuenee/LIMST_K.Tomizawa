@@ -218,14 +218,15 @@ public class NumeronService {
      */
     public List<String> getRank(int turn) {
         List<String> rank = new ArrayList<>();
-
-        if (turn < 4) {
+        if (turn < 10) {
             rank.add("A");
-        } else if (turn < 10) {
             rank.add("流石だね");
-
-
+        } else {
+            rank.add("B");
+            rank.add("平凡です");
         }
+
+
         return rank;
     }
 }
