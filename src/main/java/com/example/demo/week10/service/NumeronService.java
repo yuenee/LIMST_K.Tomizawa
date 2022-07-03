@@ -46,6 +46,8 @@ public class NumeronService {
      * @return answerList ランダム数値3桁が格納されるリスト(答えの数列)
      */
     public List<Integer> init() {
+        this.turn= 0;
+        this.answerList=new ArrayList<>();
         int[] Ransu = new int[3];
         Ransu[0] = (int) Math.floor(Math.random() * 10);
         Ransu[1] = (int) Math.floor(Math.random() * 10);
@@ -56,7 +58,7 @@ public class NumeronService {
             }
         }
         for (int ransu : Ransu) {
-            this.answerList.add(ransu);
+            answerList.add(ransu);
         }
         return answerList;
     }
